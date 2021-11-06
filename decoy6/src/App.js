@@ -1,10 +1,10 @@
-import Word from './components/Word';
+import Navigation from './components/Navigation';
 
 function App() {
   return (
     <div>
-      Decoy 6
-      <Word mot="Portemanteau" />
+      <Navigation />
+      <h1>Element App</h1>
     </div>
   );
 }
