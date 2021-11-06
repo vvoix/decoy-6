@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+.word {
+  width: 120px;
+  height: 50px;
+  margin: 5px;
+  padding: 15px 10px 10px 10px;
+  background-size: contain;
+  font-family: 'Indie Flower', cursive;
+  background-image: url(../img/Ardoise-verte.png);
+}
