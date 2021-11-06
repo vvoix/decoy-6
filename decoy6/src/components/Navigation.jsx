@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
 import { Navbar } from 'react-bootstrap';
 import { NavDropdown } from 'react-bootstrap';
@@ -8,14 +8,14 @@ import { Container } from 'react-bootstrap';
 const Navigation = () => {
   return (
     <div>
-      <nav
-        style={{
-          borderBottom: 'solid 1px',
-          paddingBottom: '1rem',
-        }}
-      >
-        <Link to="/autre">Autre</Link> | <Link to="/maitre">Maitre</Link>
-      </nav>
+      <Navbar bg="light" expand="lg">
+        <Container>
+          <Nav.Link href="/autre">Autre</Nav.Link>
+          <Nav.Link href="/maitre">Maitre</Nav.Link>
+          <Nav.Link href="/regles">Règles</Nav.Link>
+        </Container>
+      </Navbar>
+      <Outlet />
     </div>
   );
 };
@@ -44,3 +44,7 @@ export default Navigation;
 </Navbar>; 
 <Outlet />*/
 }
+// style={{
+//           borderBottom: 'solid 1px',
+//           paddingBottom: '1rem',
+//         }}
