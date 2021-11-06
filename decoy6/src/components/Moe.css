@@ -1,0 +1,10 @@
+.moe1 {
+  width: 640px;
+  height: 442px;
+  margin: 5px;
+  padding: 80px 80px;
+  color: mediumblue;
+  background-size: contain;
+  font-family: 'Indie Flower', cursive;
+  background-image: url(../img/Moe-tab-1p.png);
+}

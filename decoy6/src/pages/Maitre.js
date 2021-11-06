@@ -1,11 +1,16 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
 
+import Choix from '../components/Choix';
+import Moe from '../components/Moe';
+
 const Maitre = () => {
   return (
     <div>
       <Navigation />
-      ;La page du maître du jeu
+      <Moe />
+      La page du maître du jeu
+      <Choix />
     </div>
   );
 };
