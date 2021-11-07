@@ -3,43 +3,89 @@
 .motp {
   width: 128px;
   height: 66px;
-  margin: 5px;
+  margin: -6px;
   padding: 20px 30px;
+
   color: white;
-  background-size: contain;
+
   font-family: 'Indie Flower', cursive;
+  font-weight: bolder;
+  font-size: 1.6em;
+
+  background-size: contain;
   background-image: url(../img/Ardoise-verte.png);
 }
 
 .motpc {
   width: 128px;
   height: 66px;
-  margin: 5px;
+  margin: -6px;
   padding: 20px 30px;
-  color: white;
-  background-size: contain;
+
   font-family: 'Indie Flower', cursive;
+  font-weight: bolder;
+  font-size: 1.6em;
+
+  color: darkgoldenrod;
+  background-size: contain;
   background-image: url(../img/Ardoise-sombre.png);
 }
 
 .motn {
   width: 128px;
   height: 66px;
-  margin: 5px;
+  margin: -6px;
   padding: 20px 20px;
+
+  font-family: 'Indie Flower', cursive;
+  font-weight: bolder;
+  font-size: 1.4em;
+
   color: white;
   background-size: contain;
-  font-family: 'Indie Flower', cursive;
   background-image: url(../img/Ardoise-verte.png);
+}
+.motnc {
+  width: 128px;
+  height: 66px;
+  margin: -6px;
+  padding: 20px 20px;
+
+  font-family: 'Indie Flower', cursive;
+  font-weight: bolder;
+  font-size: 1.4em;
+
+  color: darkgoldenrod;
+  background-size: contain;
+  background-image: url(../img/Ardoise-sombre.png);
 }
 
 .motg {
   width: 128px;
   height: 66px;
-  margin: 5px;
+  margin: -6px;
   padding: 20px 5px;
+
   color: white;
-  background-size: contain;
+
   font-family: 'Indie Flower', cursive;
+  font-weight: bolder;
+  font-size: 1.2em;
+
+  background-size: contain;
   background-image: url(../img/Ardoise-verte.png);
+}
+.motgc {
+  width: 128px;
+  height: 66px;
+  margin: -6px;
+  padding: 20px 5px;
+
+  font-family: 'Indie Flower', cursive;
+  font-weight: bolder;
+  font-size: 1.2em;
+
+  color: darkgoldenrod;
+  background-size: contain;
+  background-image: url(../img/Ardoise-sombre.png);
 }

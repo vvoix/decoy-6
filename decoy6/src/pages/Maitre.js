@@ -8,9 +8,20 @@ const Maitre = () => {
   return (
     <div>
       <Navigation />
-      <Moe />
-      La page du maître du jeu
-      <Choix />
+      <Moe mots={['craie', 'cartable', 'portemanteau']} />
+
+      <Choix
+        mots={[
+          'craie',
+          'cartable',
+          'portemanteau',
+          'craie',
+          'cartable',
+          'portemanteau',
+          'cartable',
+          'portemanteau',
+        ]}
+      />
     </div>
   );
 };

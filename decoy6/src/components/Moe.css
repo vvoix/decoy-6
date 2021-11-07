@@ -2,9 +2,32 @@
   width: 640px;
   height: 442px;
   margin: 5px;
-  padding: 80px 80px;
-  color: mediumblue;
+  padding: 50px 80px;
+
   background-size: contain;
+
+  color: white;
+
   font-family: 'Indie Flower', cursive;
+  font-weight: bolder;
+
   background-image: url(../img/Moe-tab-1p.png);
+}
+
+.tableau {
+  width: 300px;
+  height: 300px;
+  margin: 5px;
+  padding: 10px 10px;
+  position: 10px -10px;
+}
+.bouton {
+  margin: 0px;
+  padding: -20px;
+}
+.progress {
+  width: 380px;
+}
+.texte {
+  font-size: 1.4em;
 }

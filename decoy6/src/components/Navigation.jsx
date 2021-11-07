@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
 import { Navbar } from 'react-bootstrap';
 import { NavDropdown } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
+import Heure from './Heure';
 
 const Navigation = () => {
   return (
@@ -13,6 +14,7 @@ const Navigation = () => {
           <Nav.Link href="/autre">Autre</Nav.Link>
           <Nav.Link href="/maitre">Maitre</Nav.Link>
           <Nav.Link href="/regles">Règles</Nav.Link>
+          <Heure />
         </Container>
       </Navbar>
       <Outlet />
