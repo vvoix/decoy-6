@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ProgressBar } from 'react-bootstrap';
+import Button from '@restart/ui/esm/Button';
 import Mot from '../components/Mot';
 import Decompte from './Decompte';
 import './Moe.css';
@@ -28,6 +29,10 @@ const Moe = (props) => {
           <button className="bouton" onClick={() => setSelec(2)}>
             <Mot mot={props.mots[2]} clique={selec === 2} />
           </button>
+          <button>Bouton sans style</button>
+          <button className="bouton"> Bouton classe bouton</button>
+          <button>Bouton sans style</button>
+          <Button class="btn btn-primary"> Boutton primary</Button>
           <br />
           <br />
           <div className="texte">

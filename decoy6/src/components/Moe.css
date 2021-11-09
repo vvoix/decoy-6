@@ -22,8 +22,8 @@
   position: 10px -10px;
 }
 .bouton {
-  margin: 0px;
-  padding: -20px;
+  margin: 0.2rem;
+  padding: 0px;
 }
 .progress {
   width: 380px;

@@ -3,7 +3,7 @@
 .motp {
   width: 128px;
   height: 66px;
-  margin: -6px;
+  margin: 5px;
   padding: 20px 30px;
 
   color: white;
@@ -19,7 +19,7 @@
 .motpc {
   width: 128px;
   height: 66px;
-  margin: -6px;
+  margin: 5px;
   padding: 20px 30px;
 
   font-family: 'Indie Flower', cursive;
@@ -34,7 +34,7 @@
 .motn {
   width: 128px;
   height: 66px;
-  margin: -6px;
+  margin: 5px;
   padding: 20px 20px;
 
   font-family: 'Indie Flower', cursive;
@@ -48,7 +48,7 @@
 .motnc {
   width: 128px;
   height: 66px;
-  margin: -6px;
+  margin: 5px;
   padding: 20px 20px;
 
   font-family: 'Indie Flower', cursive;
@@ -63,7 +63,7 @@
 .motg {
   width: 128px;
   height: 66px;
-  margin: -6px;
+  margin: 5px;
   padding: 20px 5px;
 
   color: white;
@@ -78,7 +78,7 @@
 .motgc {
   width: 128px;
   height: 66px;
-  margin: -6px;
+  margin: 5px;
   padding: 20px 5px;
 
   font-family: 'Indie Flower', cursive;

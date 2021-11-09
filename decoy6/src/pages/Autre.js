@@ -1,10 +1,12 @@
 import React from 'react';
+import Data from '../components/Data';
 import Navigation from '../components/Navigation';
 const Autre = () => {
   return (
     <div>
       <Navigation />
-      ;La page d'un autre joueur
+
+      <Data />
     </div>
   );
 };
