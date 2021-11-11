@@ -1777,13 +1777,32 @@ const Data = () => {
   ];
 
   const wordletsimple = [...new Set(wordlet)];
-  const ord = wordletsimple.sort((a, b) => a.length - b.length).join(' | ');
+  const coupe = Math.floor(Math.random() * wordletsimple.length);
+  //   const motsRestants = wordletsimple.slice(coupe, 1);
+  //   const ord = motsRestants.sort((a, b) => a.length - b.length).join(' | ');
+  const unjoueur = [];
+  while (unjoueur.length < 20) {
+    unjoueur.push(
+      wordletsimple[Math.floor(Math.random() * wordletsimple.length)]
+    );
+  }
+  const unjoueursimple = [...new Set(unjoueur)];
+  while (unjoueursimple.length < 20) {
+    unjoueursimple.push(
+      wordletsimple[Math.floor(Math.random() * wordletsimple.length)]
+    );
+  }
   return (
     <div>
-      Longueur du tableau : {wordlet.length}. Après suppression des doublons :{' '}
-      {wordletsimple.length}. Les mots sont :<div>{ord}</div>
+      Un joueur à : {unjoueursimple.length} mots qui sont :{' '}
+      {unjoueursimple.join(' | ')}
+      {/* <div>{ord}</div> */}
     </div>
   );
 };
 
 export default Data;
+
+// Longueur du tableau : {wordlet.length}. Après suppression des doublons :{' '}
+//       {wordletsimple.length}. On coupe à : {coupe}. Un mot au hasard est :{' '}
+//       {wordletsimple[coupe]}.

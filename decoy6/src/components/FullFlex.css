@@ -1,0 +1,18 @@
+.fullflex {
+  width: 90%;
+  background-color: lightgreen;
+  position: relative;
+
+  padding: 1rem;
+  margin: auto;
+
+  box-shadow: 10px 5px 5px black;
+  border-radius: 10px;
+}
+.btn {
+  margin: 0.2rem;
+}
+.tour {
+  font-weight: bolder;
+  font-size: 1.4em;
+}

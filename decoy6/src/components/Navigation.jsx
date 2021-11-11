@@ -11,6 +11,7 @@ const Navigation = () => {
     <div>
       <Navbar bg="light" expand="lg">
         <Container>
+          <Nav.Link href="/jeu">Jeu</Nav.Link>
           <Nav.Link href="/autre">Autre</Nav.Link>
           <Nav.Link href="/maitre">Maitre</Nav.Link>
           <Nav.Link href="/regles">Règles</Nav.Link>

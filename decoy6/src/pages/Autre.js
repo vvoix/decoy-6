@@ -1,12 +1,23 @@
 import React from 'react';
-import Data from '../components/Data';
+import FullFlex from '../components/FullFlex';
 import Navigation from '../components/Navigation';
+
 const Autre = () => {
   return (
     <div>
       <Navigation />
-
-      <Data />
+      <FullFlex
+        mots={[
+          'craie',
+          'cartable',
+          'portemanteau',
+          'craie',
+          'cartable',
+          'portemanteau',
+          'cartable',
+          'portemanteau',
+        ]}
+      />
     </div>
   );
 };
