@@ -7,6 +7,7 @@ import touslesmots from './touslesmots.json';
 const Jeu = () => {
   // Distributions des mots
   const motsRandom = touslesmots;
+
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
