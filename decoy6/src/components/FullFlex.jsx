@@ -1,4 +1,3 @@
-import { computeHeadingLevel } from '@testing-library/dom';
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/Button';
@@ -10,21 +9,9 @@ const FullFlex = (props) => {
   const [indice1, setIndice1] = useState('');
   const [indice2, setIndice2] = useState('');
   const [leure, setLeure] = useState([]);
-  const [shuffleLeure, setshuffleLeure] = useState([]);
   const [choix, setChoix] = useState([]);
 
-  function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-  }
-  function shuffleArray(array) {
-    for (var i = array.length - 1; i > 0; i--) {
-      var j = getRandomInt(i + 1);
-      var temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-    }
-  }
-
+  // Compte le nombre d'occurence de mot dans array
   function compte(mot, array) {
     var nbr = 0;
     for (var i = array.length - 1; i > -1; i--) {
@@ -35,6 +22,7 @@ const FullFlex = (props) => {
     return nbr;
   }
 
+  // Tableau du nombre de points gagnés par le maître du jeu
   function pointsMJ(n) {
     return n == 0
       ? 0
@@ -51,6 +39,7 @@ const FullFlex = (props) => {
       : 'erreur' + n;
   }
 
+  // Tableau du nombre de points gagnés par un joueur
   function trouve(n) {
     return n == 0
       ? 0
@@ -67,7 +56,9 @@ const FullFlex = (props) => {
       : 'erreur' + n;
   }
 
+  // MotsDuJoueur[6][0,1,2] : les 3 mots parmi lesquels le MJ choisit le mot secret
   const indices = props.motsDuJoueur[6].slice(0, 3);
+
   return (
     <div>
       {/* Tour du Maitre */}
