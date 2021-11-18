@@ -108,8 +108,17 @@ const TextRegles = () => {
         </thead>
         <tbody>
           <tr>
-            <td>Récompense pour avoir trouvé le mot secret</td>
+            <td>Gains du maître du jeu</td>
             <td>0</td>
+            <td>7</td>
+            <td>20</td>
+            <td>20</td>
+            <td>7</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>Récompense pour avoir trouvé le mot secret</td>
+            <td></td>
             <td>20</td>
             <td>7</td>
             <td>7</td>
@@ -123,7 +132,7 @@ const TextRegles = () => {
             <td>7</td>
             <td>7</td>
             <td>20</td>
-            <td>0</td>
+            <td></td>
           </tr>
         </tbody>
       </Table>
