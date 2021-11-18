@@ -8,8 +8,8 @@ const FullFlex = (props) => {
   const [motSecret, setMotSecret] = useState('');
   const [indice1, setIndice1] = useState('');
   const [indice2, setIndice2] = useState('');
-  const [leurre, setLeurre] = useState([]);
-  const [choix, setChoix] = useState([]);
+  const [leurre, setLeurre] = useState([0, 1, 2, 3, 4]);
+  const [choix, setChoix] = useState(['']);
   const leurreOrdre = [2, 1, 3, 4, 5];
 
   // Compte le nombre d'occurence de mot dans array
@@ -24,11 +24,48 @@ const FullFlex = (props) => {
   }
 
   // Affecte item comme leurre du joueur i
-  // function changeLeurre(i, item) {
+  function changeLeurre(i, item) {
+    const newLeurre = leurre;
+    newLeurre[i] = item;
+    setLeurre(newLeurre);
+    // Attention : cette commande est vraiment débile !
+    setLeurre([
+      leurre[0],
+      leurre[1],
+      leurre[2],
+      leurre[3],
+      leurre[4],
+      leurre[5],
+    ]);
+  }
 
-  //   }
-  //   return nbr;
-  // }
+  //  Tour du joueur j
+  function tourJoueur(j) {
+    return (
+      <div className="fullflex">
+        <div className="tour">Leurre du joueur {j}</div>
+        Les indices sont : <b>{indice1}</b> et <b>{indice2}</b>.
+        <br />
+        Choisis un leurre (parmi tes mots) : <b> {leurre[j]}</b>.
+        <br />
+        <div class="d-flex justify-content-lg-between flex-wrap">
+          <ButtonGroup className="me-2" aria-label="Mots" variant="link">
+            {props.motsDuJoueur[j].map((item) => (
+              <Button
+                onClick={() => {
+                  changeLeurre(j, item);
+                }}
+                variant="success"
+              >
+                {' '}
+                {item}{' '}
+              </Button>
+            ))}
+          </ButtonGroup>
+        </div>
+      </div>
+    );
+  }
 
   // Tableau du nombre de points gagnés par le maître du jeu
   function pointsMJ(n) {
@@ -73,22 +110,15 @@ const FullFlex = (props) => {
       <div className="fullflex">
         <h2>Tour du maître du jeu</h2>
         <br />
-        Choisis un mot secret (parmi trois) : <b>{motSecret}</b>
+        Choisis un mot secret (parmi trois) : <b>{motSecret}</b>.
         <br />
         <div class="d-flex justify-content-lg-between flex-wrap">
-          <ButtonGroup className="me-2" aria-label="First group">
+          <ButtonGroup className="me-2" aria-label="First group" variant="link">
             {indices.map((item) => (
               <Button
                 onClick={() => {
                   setMotSecret(item);
-                  setLeurre([
-                    item,
-                    leurre[1],
-                    leurre[2],
-                    leurre[3],
-                    leurre[4],
-                    leurre[5],
-                  ]);
+                  changeLeurre(0, item);
                 }}
                 variant="success"
               >
@@ -102,7 +132,7 @@ const FullFlex = (props) => {
         <b>{indice2}</b>.
         <br />
         <div class="d-flex justify-content-lg-between flex-wrap">
-          <ButtonGroup className="me-2" aria-label="Mots">
+          <ButtonGroup className="me-2" aria-label="Mots" variant="link">
             {props.motsDuJoueur[0].map((item) => (
               <Button
                 onClick={() => {
@@ -119,160 +149,15 @@ const FullFlex = (props) => {
         </div>
       </div>
       <br />
-      {/* Tour du Joueur 1 */}
-      <div className="fullflex">
-        <div className="tour">Leurre du joueur 1</div>
-        Les indices sont : <b>{indice1}</b> et <b>{indice2}</b> .
-        <br />
-        Choisis un leurre (parmi tes mots ) : <b> {leurre[1]}</b> .
-        <br />
-        <div class="d-flex justify-content-lg-between flex-wrap">
-          {/* <ButtonGroup className="me-2" aria-label="Mots"> */}
-          {props.motsDuJoueur[1].map((item) => (
-            <Button
-              onClick={() => {
-                setLeurre([
-                  leurre[0],
-                  item,
-                  leurre[2],
-                  leurre[3],
-                  leurre[4],
-                  leurre[5],
-                ]);
-              }}
-              variant="success"
-            >
-              {' '}
-              {item}{' '}
-            </Button>
-          ))}
-          {/* </ButtonGroup> */}
-        </div>
-      </div>
+      {tourJoueur(1)}
       <br />
-      {/* Tour du Joueur 2 */}
-      <div className="fullflex">
-        <div className="tour">Leurre du joueur 2</div>
-        Les indices sont : {indice1} et {indice2}.
-        <br />
-        Choisis un leurre (parmi tes mots ) : <b>{leurre[2]} </b>.
-        <br />
-        <div class="d-flex justify-content-lg-between flex-wrap">
-          <ButtonGroup className="me-2" aria-label="Mots">
-            {props.motsDuJoueur[2].map((item) => (
-              <Button
-                onClick={() => {
-                  setLeurre([
-                    leurre[0],
-                    leurre[1],
-                    item,
-                    leurre[3],
-                    leurre[4],
-                    leurre[5],
-                  ]);
-                }}
-                variant="dark"
-              >
-                {' '}
-                {item}{' '}
-              </Button>
-            ))}
-          </ButtonGroup>
-        </div>
-      </div>
+      {tourJoueur(2)}
       <br />
-      {/* Tour du Joueur 3 */}
-      <div className="fullflex">
-        <div className="tour">Leurre du joueur 3</div>
-        Les indices sont : <b>{indice1}</b> et <b>{indice2}</b>.
-        <br />
-        Choisis un leurre (parmi tes mots ) : <b>{leurre[3]}</b>.
-        <br />
-        <div class="d-flex justify-content-lg-between flex-wrap">
-          <ButtonGroup className="me-2" aria-label="Mots">
-            {props.motsDuJoueur[3].map((item) => (
-              <Button
-                onClick={() => {
-                  setLeurre([
-                    leurre[0],
-                    leurre[1],
-                    leurre[2],
-                    item,
-                    leurre[4],
-                    leurre[5],
-                  ]);
-                }}
-                variant="primary"
-              >
-                {' '}
-                {item}{' '}
-              </Button>
-            ))}
-          </ButtonGroup>
-        </div>
-      </div>
+      {tourJoueur(3)}
       <br />
-      {/* Tour du Joueur 4 */}
-      <div className="fullflex">
-        <div className="tour">Leurre du joueur 4</div>
-        Les indices sont : <b>{indice1}</b> et <b>{indice2}</b>.
-        <br />
-        Choisis un leurre (parmi tes mots ) : <b>{leurre[4]}</b>.
-        <br />
-        <div class="d-flex justify-content-lg-between flex-wrap">
-          <ButtonGroup className="me-2" aria-label="Mots" variant="link">
-            {props.motsDuJoueur[4].map((item) => (
-              <Button
-                onClick={() => {
-                  setLeurre([
-                    leurre[0],
-                    leurre[1],
-                    leurre[2],
-                    leurre[3],
-                    item,
-                    leurre[5],
-                  ]);
-                }}
-                variant="success"
-              >
-                {' '}
-                {item}{' '}
-              </Button>
-            ))}
-          </ButtonGroup>
-        </div>
-      </div>
+      {tourJoueur(4)}
       <br />
-      {/* Tour du Joueur 5 */}
-      <div className="fullflex">
-        <div className="tour">Leurre du joueur 5</div>
-        Les indices sont : <b>{indice1}</b> et <b>{indice2}</b>.
-        <br />
-        Choisis un leurre (parmi tes mots) : <b>{leurre[5]}</b>.
-        <br />
-        <div class="d-flex justify-content-lg-between flex-wrap">
-          <ButtonGroup className="me-2" aria-label="Mots" variant="link">
-            {props.motsDuJoueur[5].map((item) => (
-              <Button
-                onClick={() => {
-                  setLeurre([
-                    leurre[0],
-                    leurre[1],
-                    leurre[2],
-                    leurre[3],
-                    leurre[4],
-                    item,
-                  ]);
-                }}
-                variant="info"
-              >
-                {' '}
-                {item}{' '}
-              </Button>
-            ))}
-          </ButtonGroup>
-        </div>
-      </div>
+      {tourJoueur(4)}
       <br />
       {/* Fin du tour */}
       {/* <Button
