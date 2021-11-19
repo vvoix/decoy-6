@@ -8,9 +8,9 @@ const FullFlex = (props) => {
   const [motSecret, setMotSecret] = useState('');
   const [indice1, setIndice1] = useState('');
   const [indice2, setIndice2] = useState('');
-  const [leurre, setLeurre] = useState([0, 1, 2, 3, 4]);
-  const [choix, setChoix] = useState(['']);
-  const leurreOrdre = [2, 1, 3, 4, 5];
+  const [leurre, setLeurre] = useState([]);
+  const [ordre, setOrdre] = useState([]);
+  const [choix, setChoix] = useState([]);
 
   // Compte le nombre d'occurence de mot dans array
   function compte(mot, array) {
@@ -28,7 +28,6 @@ const FullFlex = (props) => {
     const newLeurre = leurre;
     newLeurre[i] = item;
     setLeurre(newLeurre);
-    // Attention : cette commande est vraiment débile !
     setLeurre([
       leurre[0],
       leurre[1],
@@ -39,7 +38,37 @@ const FullFlex = (props) => {
     ]);
   }
 
+  // Affecte item comme choix du joueur i
+  function changeChoix(i, item) {
+    const newChoix = choix;
+    newChoix[i] = item;
+    setChoix(newChoix);
+    setChoix([choix[0], choix[1], choix[2], choix[3], choix[4], choix[5]]);
+  }
+
+  // Création de ordre (= leurre ordonné)
+  function ordreLeurre() {
+    let tableau = [
+      leurre[0],
+      leurre[1],
+      leurre[2],
+      leurre[3],
+      leurre[4],
+      leurre[5],
+    ];
+    tableau.sort();
+    setOrdre([
+      tableau[0],
+      tableau[1],
+      tableau[2],
+      tableau[3],
+      tableau[4],
+      tableau[5],
+    ]);
+  }
+  // -----------------
   //  Tour du joueur j
+  // -----------------
   function tourJoueur(j) {
     return (
       <div className="fullflex">
@@ -59,6 +88,34 @@ const FullFlex = (props) => {
               >
                 {' '}
                 {item}{' '}
+              </Button>
+            ))}
+          </ButtonGroup>
+        </div>
+      </div>
+    );
+  }
+  // -----------------
+  //  Tour du joueur j
+  // -----------------
+  function choixJoueur(j) {
+    return (
+      <div className="fullflex">
+        <div className="tour">Choix du joueur {j}.</div>
+        Les indices étaient : {indice1} et {indice2}.
+        <br />
+        Deviner le mot secret (parmi les mots) : {choix[j]}.
+        <br />
+        <div class="d-flex justify-content-lg-between flex-wrap">
+          <ButtonGroup className="me-2" aria-label="Mots" variant="link">
+            {ordre.map((item) => (
+              <Button
+                onClick={() => {
+                  changeChoix(j, item);
+                }}
+                variant="success"
+              >
+                {item}
               </Button>
             ))}
           </ButtonGroup>
@@ -157,194 +214,54 @@ const FullFlex = (props) => {
       <br />
       {tourJoueur(4)}
       <br />
-      {tourJoueur(4)}
+      {tourJoueur(5)}
       <br />
       {/* Fin du tour */}
-      {/* <Button
-        variant="danger"
+      <Button
+        variant="warning"
         onClick={() => {
-          leurre.sort();
+          ordreLeurre();
         }}
       >
-        Fin du tour leurre est : {leurre}.
-      </Button>{' '} */}
+        Mélange.
+      </Button>{' '}
       <br /> <br />
-      {/* Choix du joueur 1 */}
-      <div className="fullflex">
-        <div className="tour">Choix du joueur 1.</div>
-        Les indices étaient : {indice1} et {indice2}.
-        <br />
-        Deviner le mot secret (parmi les mots) : {choix[1]}.
-        <br />
-        <div class="d-flex justify-content-lg-between flex-wrap">
-          <ButtonGroup className="me-2" aria-label="Mots">
-            {leurre.map((item) => (
-              <Button
-                onClick={() => {
-                  setChoix([
-                    choix[0],
-                    item,
-                    choix[2],
-                    choix[3],
-                    choix[4],
-                    choix[5],
-                  ]);
-                }}
-                variant="success"
-              >
-                {' '}
-                {item}{' '}
-              </Button>
-            ))}
-          </ButtonGroup>
-        </div>
-      </div>
+      {choixJoueur(1)}
       <br />
-      {/* Choix du joueur 2 */}
-      <div className="fullflex">
-        <div className="tour">Choix du joueur 2</div>
-        Les indices étaient : {indice1} et {indice2}.
-        <br />
-        Deviner le mot secret (parmi les mots ) : {choix[2]}.
-        <br />
-        <div class="d-flex justify-content-lg-between flex-wrap">
-          <ButtonGroup className="me-2" aria-label="Mots">
-            {leurre.map((item) => (
-              <Button
-                onClick={() => {
-                  setChoix([
-                    choix[0],
-                    choix[1],
-                    item,
-                    choix[3],
-                    choix[4],
-                    choix[5],
-                  ]);
-                }}
-                variant="success"
-              >
-                {' '}
-                {item}{' '}
-              </Button>
-            ))}
-          </ButtonGroup>
-        </div>
-      </div>
+      {choixJoueur(2)}
       <br />
-      {/* Choix du joueur 3 */}
-      <div className="fullflex">
-        <div className="tour">Choix du joueur 3</div>
-        Les indices étaient : {indice1} et {indice2}.
-        <br />
-        Deviner le mot secret (parmi les mots ) : {choix[3]}.
-        <br />
-        <div class="d-flex justify-content-lg-between flex-wrap">
-          <ButtonGroup className="me-2" aria-label="Mots">
-            {leurre.map((item) => (
-              <Button
-                onClick={() => {
-                  setChoix([
-                    choix[0],
-                    choix[1],
-                    choix[2],
-                    item,
-                    choix[4],
-                    choix[5],
-                  ]);
-                }}
-                variant="success"
-              >
-                {' '}
-                {item}{' '}
-              </Button>
-            ))}
-          </ButtonGroup>
-        </div>
-      </div>
+      {choixJoueur(3)}
       <br />
-      {/* Choix du joueur 4 */}
-      <div className="fullflex">
-        <div className="tour">Choix du joueur 4</div>
-        Les indices étaient : {indice1} et {indice2}.
-        <br />
-        Deviner le mot secret (parmi les mots ) : {choix[4]}.
-        <br />
-        <div class="d-flex justify-content-lg-between flex-wrap">
-          <ButtonGroup className="me-2" aria-label="Mots">
-            {leurre.map((item) => (
-              <Button
-                onClick={() => {
-                  setChoix([
-                    choix[0],
-                    choix[1],
-                    choix[2],
-                    choix[3],
-                    item,
-                    choix[5],
-                  ]);
-                }}
-                variant="success"
-              >
-                {' '}
-                {item}{' '}
-              </Button>
-            ))}
-          </ButtonGroup>
-        </div>
-      </div>
+      {choixJoueur(4)}
       <br />
-      {/* Choix du joueur 5 */}
-      <div className="fullflex">
-        <div className="tour">Choix du joueur 5</div>
-        Les indices étaient : {indice1} et {indice2}.
-        <br />
-        Deviner le mot secret (parmi les mots ) : {choix[5]}.
-        <br />
-        <div class="d-flex justify-content-lg-between flex-wrap">
-          <ButtonGroup className="me-2" aria-label="Mots">
-            {leurre.map((item) => (
-              <Button
-                onClick={() => {
-                  setChoix([
-                    choix[0],
-                    choix[1],
-                    choix[2],
-                    choix[3],
-                    choix[4],
-                    item,
-                  ]);
-                }}
-                variant="success"
-              >
-                {' '}
-                {item}{' '}
-              </Button>
-            ))}
-          </ButtonGroup>
-        </div>
-      </div>
+      {choixJoueur(5)}
       <br />
       {/* Compte des points*/}
       <div className="fullflex">
         <div className="tour">Décompte des points</div>
-        <Button variant="dark" disabled="off">
-          Le mot secret était : {motSecret}. Le nombre de joueur ayant trouvé le
-          mot secret est : {compte(motSecret, choix)}. Le maître du jeu gagne{' '}
-          {pointsMJ(compte(motSecret, choix))}:
-        </Button>{' '}
+        <br />
+        Le mot secret était : {motSecret}.
+        <br />
+        Le nombre de joueur ayant trouvé le mot secret est :{' '}
+        {compte(motSecret, choix)}.
+        <br />
+        Le maître du jeu gagne {pointsMJ(compte(motSecret, choix))}:
+        <br />
         <br />
         {leurre.map((item, index) =>
           index > 0 ? (
-            <Button variant="dark" disabled="off">
+            <div>
               Le joueur {index} a trouvé le mot secret :{' '}
-              {choix[index] == motSecret ? 'oui' : 'non'} et a leurré :{' '}
-              {compte(leurre[index], choix)} joueurs. Il gagne :{' '}
+              {choix[index] == motSecret ? 'oui' : 'non'}.<br />
+              Il a leurré : {compte(leurre[index], choix)} joueurs. <br />
+              Il gagne :{' '}
               {compte(choix[index], [motSecret]) *
                 trouve(compte(motSecret, choix)) +
                 compte(leurre[index], choix) *
                   trouve(5 - compte(motSecret, choix))}
-              .
-            </Button>
+              .<br />
+              <br />
+            </div>
           ) : null
         )}
         <br />
